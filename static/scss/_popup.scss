@@ -1,0 +1,154 @@
+.popup{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  overflow-y: auto;
+  color: $black;
+  .p_inner {
+    position: fixed;
+    width: 90%;
+    max-width: 400px;
+    min-height: 170px;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: $white;
+    box-sizing: border-box;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 150ms;
+    align-content: space-between;
+    @include tablet {
+      min-width: 400px;
+    }
+  }
+  .content{
+    @include setCont(100%, null, flex, relative);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+    margin: 0;
+    @include font(14, 16);
+    h2{
+      @include font(20, 24);
+      text-align: center;
+    }
+    h3{
+      width: 100%;
+      @include font(18, 20);
+      text-align: left;
+      padding: 15px 20px;
+      border-bottom: 1px solid $border;
+    }
+    .msg{
+      @include setCont(100%, null, block, relative);
+      text-align: left;
+      padding: 20px 15px;
+      p{
+        width: 100%;
+        &+p{
+          margin-top: 10px;
+        }
+      }
+      .txt_red{
+        padding-left: 21px;
+        @include bgSvg(icoAlert("EA0000"), no-repeat, 0 0, 16px 18px);
+      }
+      @include tablet {
+        padding: 30px 20px;
+
+      }
+    }
+  }
+  .btns{
+    width: 100%;
+    flex-shrink: 0;
+    &.col2{
+      .button{
+        width: 50%;
+      }
+    }
+    .button{
+      @include setCont(100%, 50px, flex);
+      color: $point;
+      justify-content: center;
+      align-items: center;
+      @include font(16, 1);
+      border-top: 1px solid #ddd;
+      &:hover{
+        background: $point;
+        color:$white;
+      }
+      &.blue{
+        background: $point;
+        color:$white;
+      }
+    }
+  }
+  // &.alert,&.confirm{
+  //   .p_inner {
+  //     display: flex;
+  //     text-align: center;
+  //     flex-wrap: wrap;
+  //     @include tablet {
+  //       width: 300px;
+  //     }
+  //     @include pc {
+  //     }
+  //   }
+  //   .content{
+  //     width: 100%;
+  //     min-height: 200px;
+  //     display: flex;
+  //     flex-wrap: wrap;
+  //     color:#777;
+  //     font-size: 14px;
+  //     justify-content: center;
+  //     align-content: center;
+  //     h5{
+  //       color: $black;
+  //       &+.msg{
+  //         margin-top: 25px;
+  //       }
+  //     }
+  //   }
+  //   .btns{
+  //     @include setCont(100%, 50px, flex);
+  //     flex-shrink: 0;
+  //     .btn{
+  //       @include setCont(100%, 100%, flex);
+  //       @include center;
+  //       min-width: 70px;
+  //       font-size: 16px;
+  //       &.l_black{
+  //         border: none;
+  //         border-top: 1px solid #DDDDDD;
+  //         color: #777777;
+  //       }
+  //     }
+  //     &.col2{
+  //       .btn{
+  //         width: 50%;
+  //       }
+  //     }
+  //   }
+  // }
+  // &.alert{
+  //   .content{
+  //     min-height: 150px;
+  //   }
+  // }
+}

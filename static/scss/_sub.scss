@@ -1,0 +1,663 @@
+.sub{
+  .w_inner{
+    position: relative;
+    padding: 33px calcPercent(15) 20px;
+    min-height: 100vh;
+    @include tablet {
+      padding: 35px calcPercent(30, 768) 45px;
+    }
+  }
+  @include pc{
+    .wrap{
+      background: #F7FAFF;
+      padding: 88px 0 100px;
+    }
+    .w_inner{
+      width: 780px;
+      background: $white;
+      box-shadow: 0px 10px 20px #00000029;
+      border-radius: 10px;
+      padding: 44px 40px 70px;
+    }
+  }
+  .top{
+    width: 100%;
+    text-align: center;
+    h1{
+      @include font(20, 24);
+      position: relative;
+      display: inline-block;
+      b{
+        position: relative;
+        z-index: 2;
+      }
+      @include tablet {
+        @include font(25, 30);
+      }
+      @include pc{
+        @include font(30, 36);
+      }
+      &:before{
+        @include setCont(12px, 13px, block, absolute);
+        @include bgSvg(icoTit("CCDAE8"), no-repeat, 50% 50%, 100% 100%);
+        top: -5px;
+        left: -2px;
+        z-index: 1;
+        @include tablet { 
+          @include setCont(19px, 22px, block, absolute); 
+          top: -6px;
+          left: -11px;
+        }
+        @include pc { 
+          @include setCont(25px, 28px, block, absolute); 
+          top: -13px;
+          left: -13px;
+        }
+      }
+    }
+    h2{
+      position: relative;
+      margin-top: 23px;
+      font-size: calcRem(18);
+      line-height: calcRem(21);
+      @include tablet {
+        margin-top: 40px;
+      }
+      @include pc { 
+        margin-top: 33px;
+        font-size: calcRem(20);
+        line-height: calcRem(24);
+      }
+      .txt_point{
+        position: relative;
+        em{
+          position: relative;
+          z-index: 2;
+        }
+        &:before{
+          @include setCont(91%, 5px, inline-block, absolute, $point1);
+          right: 0;
+          bottom: 0;
+          opacity: 0.5;
+          z-index: 1;
+          @include tablet {
+            width: 100%;
+          }
+        }
+      }
+      &:before{
+        @include setCont(20px, 20px, inline-block);
+        @include bgSvg(icoList($s_point, "CCDAE8"), no-repeat, 50% 50%, 100% 100%);
+        margin-right: 4px;
+        vertical-align: middle;
+        margin-top: -2px;
+        @include tablet {
+          @include setCont(25px, 25px);
+          background-size: 25px 25px !important;
+        }
+        @include pc { 
+          margin-right:6px;
+          @include setCont(30px, 30px);
+        }
+      }
+    }
+    .desc{
+      margin-top: 4px;
+      color: #969696;
+      @include tablet {
+        @include font(16, 19);
+        margin-top: 10px;
+      }
+      @include pc{
+      }
+    }
+  }
+  .btn{
+    width: 100%;
+    border-radius: 5px;
+    @include tablet {
+      padding: 13px calcPercent(20);
+    }
+    @include pc {
+      padding: 16px 20px 15px;
+    }
+  }
+  .area_bnr{
+    @include setCont(100%, calcVw(70), flex, relative);
+    max-height: 100px;
+    align-items: center;
+    margin: 30px 0 18px;
+    padding: 17px calcPercent(20, 290) 15px;
+    background: #1F284A;
+    border-radius: 5px;
+    @include tablet {
+      height: calcVw(70, 7.68);
+      max-height: 90px;
+      margin: 50px 0 10px ;
+      padding: 26px calcPercent(30, $s_tablet);
+      font-size: calcRem(16);
+      line-height: calcRem(19);
+      br{
+        display: none;
+      }
+    }
+    @include pc {
+      height: 90px;
+      margin: 40px 0 20px;
+    }
+    &:before{
+      @include setCont(null, null, block, absolute);
+      top: 50%;
+      left: calcVw(15);
+      transform: translateY(-50%);
+      content: "NOTICE"; 
+      color: #201F45;
+      @include fontfamily(500, "mont");
+      font-size: calcRem(45);
+      line-height: calcRem(64);
+      z-index: 1;
+      @include tablet {
+        left: calcVw(30, 7.68);
+        font-size: calcRem(50);
+      }
+    }
+    &:after{
+      @include setCont(calcVw(102), calcVw(70), block, absolute);
+      @include bgSvg(imgResult1(), no-repeat, 50% 50%, 100% auto);
+      max-width: 131px;
+      max-height: 100px;
+      top: -10px;
+      right: calcVw(5);
+      animation: aniSub1 1s infinite ease;
+      z-index: 2;
+      @include tablet {
+        @include setCont(calcVw(102, 7.68), calcVw(70, 7.68));
+        right: calcVw(40, 7.68);
+      }
+      @include pc {
+        @include setCont(127px, 88px);
+        top: -15px;
+        right: 42px;
+      }
+      @keyframes aniSub1{
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(10%);
+        }
+        100% {
+          transform: translateY(0);
+        }
+        // 0% {
+        //   top: -10px;
+        // }
+        // 50% {
+        //   top: -5px;
+        // }
+        // 100% {
+        //   top: -10px;
+        // }
+      }
+    }
+    p{
+      font-size: calcRem(16);
+      line-height: calcRem(19);
+      color: $white;
+    }
+    .bx{
+      position: relative;
+      z-index: 3;
+    }
+  }
+  .content{
+    width: 100%;
+    margin-bottom: 40px;
+    @include tablet {
+      margin-bottom: 50px;
+    }
+  }
+  .list{
+    width: 100%;
+    li{
+      @include setCont(100%, null, block, relative);
+      padding: 15px calcPercent(15);
+      border-bottom: 1px solid $border;
+      @include tablet {
+        padding: 20px calcPercent(20, $s_tablet) 17.5px;
+        h3{
+          font-size: calcRem(18);
+          line-height: calcRem(21);
+        }
+      }
+      &:before{
+        @include setCont(10px, 10px, block, absolute, #CCDAE8);
+        top: 18px;
+        left: 0;
+        border-radius: 10px;
+        @include tablet {
+          top: 26px;
+        }
+      }
+      .cont{
+        width: 100%;
+        margin-top: 7.5px;
+        &.bx_block{
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+
+        }
+      }
+    }
+  }
+  .appli{
+    .content{
+      padding-bottom: 0;
+      .btn{
+        margin-top: 15px;
+      }
+      @include tablet {
+        margin-bottom: 0;
+        .btn{
+          margin-top: 40px;
+          &+.list{
+            margin-top: 30px;
+          }
+        }
+      }
+    }
+    .list{
+      margin-top: 8px;
+      @include tablet {
+        display: block;
+        margin-top: 40px;
+      }
+      li{
+        border: none;
+        @include tablet {
+          padding: 0 calcPercent(20, $s_tablet);
+          font-size: calcRem(16);
+          line-height: calcRem(19);
+          &:before {
+            top: 6px;
+          }
+          br{
+            display: none;
+          }
+        }
+        .img_appli1{
+          @include setCont(210px, 238px, block);
+          @include bg("/sub/img_appli1_1.svg", no-repeat, 50% 50%, 100% 100%);
+          @include blind;
+          margin-top: 10px;
+          @include tablet {
+            margin-top: 30px;
+            padding-top: calcPercent(153, 656);
+            @include setCont(100%, 0, block);
+            @include bg("/sub/img_appli1.svg", no-repeat, 50% 50%, 100% 100%);
+          }
+        }
+      }
+    }
+    .bx.col2{
+      @include setCont(100%, null, null, relative, #F7F7F7);
+      border: 1px solid #DDD;
+      margin-top: 15px;
+      padding: 20px calcPercent(5,290);
+      @include tablet {
+        margin-top: 20px;
+        padding: 40px calcPercent(5, $s_tablet) 20px;
+      }
+      .col{
+        width: 50%;;
+        text-align: center;
+        &+.col{
+          border-left: 1px solid $border;
+        }
+        img{
+          width: calcPercent(95, 145);
+          max-width: 150px;
+          @include tablet {
+            width: calcPercent(125, 354);
+            max-width: 100%;
+          }
+        }
+        span{
+          display: block;
+          margin-top: 10px;
+          color: #4A4A4A;
+          font-size: calcRem(12);
+          line-height: calcRem(15);
+          @include tablet {
+            margin-top: 0;
+            font-size: calcRem(14);
+          }
+        }
+      }
+    }
+  }
+}
+.create{
+  width: 100%;
+  .txt_alert{
+    margin-top: 5px;
+    &+.f_item{
+      margin-top: 15px;
+    }
+  }
+  .f_item{
+    transition: all 400ms ease;
+    @include setCont(100%, 45px, flex, relative, #F7F7F7);
+    border: 1px solid $border;
+    align-items: center;
+    @include pc {
+      height: 50px;
+    }
+    &+.f_item{
+      margin-top:5px;
+      @include pc {
+        margin-top:10px;
+      }
+    }
+    &.colb{
+      flex-wrap: nowrap;
+      .tit{
+        padding: 0 10px 0 calcPercent(10, 290);
+      }
+      .ipt{
+        width: 68.09%;
+        padding: 0 10px 0 calcPercent(10, 290);
+      }
+    }
+    &.row2{
+      height: 90px;
+      .right{
+        width: 100%; 
+        padding: 0 calcPercent(15, 290) 0 calcPercent(10, 290);
+        flex-grow: 1;
+        @include tablet {
+          padding: 0 23px 0 calcPercent(20, $s_tablet);
+        }
+        @include tablet {
+          padding: 0 23px 0 20px;
+        }
+      }
+      .ipt{
+        width: 100%;
+        height: 45px;
+        padding: 0;
+        &+.ipt{
+          border-top: 1px solid $border;
+        }
+        @include tablet {
+          padding: 0 0 0 calcPercent(10, 534);
+        }
+      }
+    }
+    &.item_radio{
+      width: 100%;
+      min-height: 45px;
+      flex-wrap: wrap;
+      height: auto;
+      background: none;
+      border: none;
+      padding: 13px 0;
+      border-bottom: 1px solid $border;
+      @include pc {
+        padding: 16px 0 15px;
+      }
+      .tit{
+        &.full{
+          width: 100%;
+          max-width: 100%;
+          &:before{
+            display: none;
+          }
+          &+.col{
+            width: 100%;
+            margin-top: 13px;
+            .bx_radio{
+              padding-left: calcPercent(10, 290);
+              width: calcPercent(104, 290);
+            }
+          }
+        }
+      }
+      .col{
+        max-width: 400px;
+        flex-grow: 1;
+        @include tablet {
+          max-width: 100%;
+        }
+      }
+      .bx_radio{
+        width: calcPercent(104, 208);
+        max-width: 50%;
+        padding-left: calcPercent(23, 215);
+        @include tablet {
+          width: calcPercent(136, 420);
+          padding: 0 0 0 calcPercent(30, 420);
+        }
+        @include pc {
+          width: 136px;
+          padding: 0 0 0 31px;
+        }
+      }
+    }
+    .tit{
+      @include setCont(calcPercent(75, 290), 100%, flex, relative);
+      max-width: 140px;
+      flex-shrink: 0;
+      padding: 0 10px 0 calcPercent(10,290);
+      align-items: center;
+      color: $gray;
+      font-size:calcRem(12);
+      line-height:calcRem(15);
+      @include tablet {
+        width: calcPercent(130, $s_tablet);
+        padding: 0 10px 0 calcPercent(20, $s_tablet);
+        font-size:calcRem(14);
+        line-height:calcRem(17);
+      }
+      &:before{
+        @include setCont(1px, 14px, block, absolute, $border);
+        top:50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
+      &.dot{
+        span{
+          display: block;
+          position: relative;
+          &:before{
+            @include setCont(5px, 5px, block, absolute, $point1);
+            top:-2px;
+            right: -7px;
+            border-radius: 5px;
+            @include tablet {
+              top: 3px;
+              right: -10px;
+            }
+          }
+        }
+      }
+    }
+    .ipt{
+      @include setCont(100%, 100%);
+      flex-grow: 1;
+      border: none;
+      background: none;
+    }
+    .btn{
+      @include setCont(calcPercent(55, 290), 100%, flex, relative);
+      justify-content: center;
+      align-items: center;
+      max-width: 110px;
+      padding: 0;
+      background: $point;
+      border-radius: 0;
+      color: $white;
+      font-weight: 400;
+      text-align: center;
+      flex-shrink: 0;
+      &:hover{
+        background: $point1;
+      }
+      @include pc {
+        max-width: 104px;
+      }
+    }
+  }
+  .toggle_item{
+    width: 100%;
+    padding: 15px 0 0;
+    transition: all 300ms ease-in;
+    color: #696969;
+    font-size: calcRem(13);
+    border-top: 1px solid $border;
+    @include tablet {
+      padding: 15px calcPercent(20, $s_tablet) 0;
+    }
+    @include pc {
+      padding: 17px 20px 0;
+    }
+    .btn_link{
+      font-size: calcRem(14);
+      line-height: calcRem(18);
+      color: #969696;
+      text-decoration: underline;
+      flex-shrink: 0;
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+    .c_top{
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      .txt_blue{
+        color: #63BDC3;
+        margin-left: 5px;
+      }
+      @include pc {
+        padding-bottom: 15px;
+      }
+    }
+    .c_cont{
+      @include setCont(100%, 0, block, relative, $white);
+      overflow: hidden;
+      border: 0 solid transparent;
+      word-break: keep-all;
+      transition: all 300ms ease;
+      padding: 0 calcPercent(10) 0 calcPercent(8);
+      font-size: calcRem(13);
+      line-height: calcRem(17);
+      opacity: 0;
+      @include tablet {
+      padding: 0 calcPercent(28, $s_tablet) 0 calcPercent(20, $s_tablet);
+      font-size:calcRem(14);
+      }
+      .bx{
+        @include setCont(100%, 100%);
+        padding-right: calcPercent(5, 370);
+        overflow-y: auto;
+        @include tablet {
+          font-size:calcRem(14);
+        }
+      }
+      ::-webkit-scrollbar {
+        width: 3px;
+        height: 3px;
+      }
+      ::-webkit-scrollbar-track {
+        width: 1px;
+        height: 1px;
+        background: #CCDAE8;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #969696;
+      }
+      ::-webkit-scrollbar-thumb:hover,::-webkit-scrollbar-thumb:active {
+        background: #868686;
+      }
+      .inner{
+        height: 100%;
+        overflow-y: auto;
+      }
+      .list_priv{
+        ul{
+          padding-left: 10px;
+        }
+      }
+      h4{
+        font-size: calcRem(13);
+        font-weight: 400;
+      }
+      h4,p,.list_priv{
+        &+h4, &+p, &+.list_priv{
+          margin-top: 15px;
+        }
+      }
+    }
+    &.on{
+      padding-bottom: 15px;
+      .c_cont{
+        height: 136px;
+        padding: 10px calcPercent(10, 290) 10px calcPercent(8, 290);
+        overflow: hidden;
+        border: 1px solid #DDDDDD;
+        background-color: #F7F7F7;
+        opacity: 1;
+        transition: all 300ms ease;
+        @include tablet {
+          padding: 19px calcPercent(28, $s_tablet) 15px calcPercent(20, $s_tablet);
+        }
+      }
+    }
+  }
+  .area1{
+    margin: 40px 0 10px;
+    transition: all 400ms ease;
+    @include pc {
+      margin: 60px 0 6px;
+    }
+  }
+  .area2{
+    margin-bottom: 40px;
+    .f_item{
+      margin-top: 0;
+      .tit{
+        @include tablet {
+          width: calcPercent(287, $s_tablet);
+          max-width: 100%;
+        }
+      }
+    }
+  }
+  .area3{
+    margin-bottom: 40px;
+    h3{
+      font-size: calcRem(16);
+      line-height: calcRem(19);
+      margin-bottom: 10px;
+      color: $gray;
+    }
+    @include tablet {
+      margin-bottom: 50px;
+    }
+    @include pc {
+      margin-bottom: 60px;
+    }
+  }
+}
+.result{
+  .w_inner{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    .align{
+      width: 100%;
+    }
+  }
+}

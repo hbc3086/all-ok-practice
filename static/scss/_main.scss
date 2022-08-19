@@ -1,0 +1,845 @@
+.main {
+  width: 100%;
+  @include pc {
+    @include font(16, 19);
+    .btn {
+      padding: 23px 20px;
+      @include font(20, 24);
+    }
+  }
+  .hide {
+    opacity: 0;
+  }
+  .top_bnr {
+    @include setCont(100%, 55px, none, fixed, #262626);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $white;
+    z-index: 10;
+    @include pc {
+      display: block;
+      & + .visual {
+        padding-top: 55px;
+      }
+    }
+    .inner {
+      @include setCont(100%, 100%, block, relative, #262626);
+      max-width: 1687px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+      .left {
+        flex-grow: 1;
+      }
+      .right {
+        flex-shrink: 0;
+      }
+      @include pc {
+        padding: 0 calcPercent(53, 1800) 0 calcPercent(60, 1800);
+      }
+    }
+    .button {
+      margin-left: 30px;
+      color: #45ddff;
+      border: 2px solid #45ddff;
+      padding: 4px 18px;
+      border-radius: 5px;
+      @include font(16, 19);
+      &:hover {
+        background: #45ddff;
+        color: $white;
+      }
+    }
+  }
+  br.tablet {
+    display: none;
+    @include tablet {
+      display: block;
+    }
+  }
+  section,
+  aside {
+    width: 100%;
+    position: relative;
+    .inner {
+      padding: 40px 0 30px;
+      @include tablet {
+        padding: 40px calcPercent(30, 768);
+      }
+    }
+  }
+  .visual {
+    transition: padding 400ms ease;
+    // transition: padding 400ms 2500ms ease;
+    .inner {
+      @include tablet {
+        padding: 70px calcPercent(30, 768) 60px;
+      }
+      @include pc {
+        padding: 158px 57px 183px;
+      }
+      &:before {
+        @include setCont(null, null, block, absolute);
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        content: "APPROVAL";
+        color: #f7f7f7;
+        @include fontfamily(500, "mont");
+        @include font(45, 55);
+        z-index: 1;
+        @include tablet {
+          top: 30px;
+          left: 30px;
+          transform: translateX(0);
+          @include font(60, 65);
+        }
+        @include pc {
+          content: "ALL-OK";
+          top: 80px;
+          left: calcPercent(-125, 1280);
+          // left: -125px;
+          @include font(150, 130);
+        }
+        @media (min-width: $tablet) and (max-width: (1500px)) {
+          left: 0;
+        }
+      }
+    }
+    .cont {
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      &:after {
+        @include setCont(100%, 185px, block);
+        // @include bgSvg(visual1(), no-repeat, 50% 50%, 202px 185px);
+        @include bg("/main/img1.svg", no-repeat, 50% 50%, 202px 185px);
+        margin: -3px auto;
+      }
+      @include tablet {
+        text-align: left;
+        &:after {
+          @include setCont(354px, 335px, block, absolute);
+          background-size: 100% 100%;
+          margin: 0;
+          top: -21px;
+          right: calcPercent(30, 768);
+        }
+      }
+      @include pc {
+        text-align: left;
+        &:after {
+          @include setCont(567px, 537px, block, absolute);
+          background-size: 100% 100%;
+          margin: 0;
+          top: -51px;
+          left: 604px;
+          right: unset;
+        }
+      }
+      h1 {
+        width: 100%;
+        display: block;
+        color: #111b35;
+        font-weight: 800;
+      }
+      h2 {
+        width: 100%;
+        @include font(25, 29);
+        color: #111b35;
+        margin: 5px auto;
+        @include tablet {
+          @include font(30, 34);
+          margin: 5px auto 16px;
+        }
+        @include pc {
+          width: 525px;
+          @include font(40, 51);
+          margin: 14px 0 10px;
+          br {
+            display: none;
+          }
+        }
+      }
+      p {
+        display: inline-block;
+        margin: 0 auto;
+        padding: 0 20px 0 27px;
+        color: #696969;
+        @include font(14, 17);
+        text-align: left;
+        @include tablet {
+          @include font(16, 19);
+          padding: 0;
+          margin: 0;
+        }
+        @include pc {
+          width: 100%;
+          @include font(25, 30);
+        }
+      }
+      .ani_typing {
+        display: inline-block;
+        position: relative;
+        min-width: 20px;
+        white-space: nowrap;
+        color: transparent;
+        margin-right: 10px;
+        &:before {
+          @include setCont(0, 100%, block, absolute);
+          content: "다된다";
+          top: 0;
+          left: 0;
+          color: #3a76ff;
+          overflow: hidden;
+          border-right: 5px solid transparent;
+          animation: typing 3.5s 1500ms steps(3) alternate infinite;
+        }
+        em {
+          @include blind;
+          @include setCont(5px, 100%, block, absolute);
+          top: 0;
+          left: 0;
+          animation: cursor 3.5s 1500ms steps(3) alternate infinite;
+          @include bgSvg(cusor($s_black), no-repeat, 100% 50%, 5px 23px);
+          //
+          z-index: 3;
+          &:before {
+            @include setCont(5px, 100%, block, absolute, $white);
+            top: 0;
+            left: 0;
+            animation: typing1 600ms 1400ms infinite ease;
+            z-index: 4;
+          }
+          @include tablet {
+            &,
+            &:before {
+              width: 6px;
+              background-size: 6px 30px;
+            }
+          }
+          @include pc {
+            @include bgSvg(cusorBig($s_black), no-repeat, 100% 50%, 6px 45px);
+            &,
+            &:before {
+              background-size: 6px 45px;
+            }
+          }
+        }
+      }
+    }
+    .btn {
+      min-width: calcPercent(240);
+    }
+    @include tablet {
+      .btns {
+        text-align: left;
+      }
+      .btn {
+        min-width: calcPercent(300, $s_tablet);
+        margin: 25px 0 0;
+        @include font(18, 21);
+      }
+    }
+    @include pc {
+      .btns {
+        text-align: left;
+      }
+      .btn {
+        padding: 23px 20px 22px;
+        min-width: 370px;
+        border-radius: 40px;
+        @include font(22, 26);
+      }
+    }
+  }
+  .area1 {
+    background: #f7faff;
+    @include tablet {
+      text-align: center;
+    }
+    @include pc {
+      @include bg("/main/bg1.jpg", no-repeat, 50% 50%, auto 100%, #f7faff);
+    }
+    .inner {
+      padding: 20px calcPercent(15) 30px;
+      @include tablet {
+        padding: 40px calcPercent(30, 768);
+      }
+      @include pc {
+        padding: 70px 0;
+      }
+    }
+    .col3 {
+      justify-content: center;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      @include tablet {
+        margin-bottom: 30px;
+      }
+      @include pc {
+        margin-bottom: 38px;
+      }
+    }
+    .unit {
+      position: relative;
+      width: 100%;
+      padding: 20px calcPercent(20);
+      color: $gray;
+      background: $white;
+      box-shadow: 0px 20px 60px #00000029;
+      border-radius: 20px;
+      &:before {
+        @include setCont(calcVw(60), calcVw(50), block, absolute);
+        @include bg("/main/img2.svg", no-repeat, 50% 50%, 100% 100%);
+        max-width: 112px;
+        max-height: 93px;
+        bottom: 10px;
+        right: 9px;
+      }
+      @include tablet {
+        width: calcPercent(225, $s_tablet);
+        padding: 25px calcPercent(20, $s_tablet) 30px;
+        &:before {
+          @include setCont(130px, 108px, inline-block, relative);
+          max-width: unset;
+          max-height: unset;
+          bottom: unset;
+          right: unset;
+        }
+      }
+      @include toTablet {
+        &:before {
+          margin-bottom: 12px;
+          background-position: 50% 100% !important;
+        }
+      }
+      @include pc {
+        width: 350px;
+        min-height: 340px;
+        padding: 32px 20px 50px;
+        @include font(18, 21);
+        &:before {
+          @include setCont(100%, 137px);
+          @include bg("/main/img2.svg", no-repeat, 50% 100%, 290px 137px);
+        }
+        br.tablet {
+          display: none;
+        }
+        br.pc {
+          display: block;
+        }
+      }
+      & + .unit {
+        margin-top: 5px;
+        @include tablet {
+          margin-top: 0;
+          margin-left: calcPercent(16, $s_tablet);
+        }
+        @include pc {
+          margin-left: 60px;
+        }
+      }
+      h3 {
+        margin-bottom: 5px;
+        color: $black;
+        @include tablet {
+          margin-bottom: 10px;
+        }
+        @include pc {
+          margin: 13px 0 16px;
+        }
+      }
+      &.u2 {
+        &:before {
+          @include setCont(calcVw(60), calcVw(38));
+          @include bg("/main/img3.svg", no-repeat, 50% 50%, 100% 100%);
+          max-height: 71px;
+          @include toTablet {
+            @include setCont(130px, 108px, inline-block, relative);
+            background-size: 100% 82px !important;
+            max-height: unset;
+          }
+          @include pc {
+            @include setCont(100%, 137px);
+            @include bg("/main/img3.svg", no-repeat, 50% 100%, 290px 103px);
+            max-height: unset;
+          }
+        }
+      }
+      &.u3 {
+        &:before {
+          @include setCont(calcVw(60), calcVw(44));
+          @include bg("/main/img4.svg", no-repeat, 50% 50%, 100% 100%);
+          max-height: 82px;
+          @include toTablet {
+            @include setCont(130px, 108px, inline-block, relative);
+            background-size: 100% 95px !important;
+            max-height: unset;
+          }
+          @include pc {
+            @include setCont(100%, 137px);
+            @include bg("/main/img4.svg", no-repeat, 75% 100%, 290px 101.5px);
+            max-height: unset;
+          }
+        }
+      }
+    }
+    .btn {
+      min-width: calcPercent(240, 290);
+      margin-top: 15px;
+      border-radius: 5px;
+      @include tablet {
+        min-width: calcPercent(250, $s_tablet);
+        margin-top: 20px;
+      }
+      @include pc {
+        min-width: 350px;
+        margin-top: 43px;
+      }
+    }
+  }
+  .area2 {
+    background: transparent linear-gradient(186deg, #0083ff 0%, #006ace 100%) 0%
+      0% no-repeat padding-box;
+    .inner {
+      // max-width: $mobile;
+      flex-wrap: wrap;
+      padding: 41px 0 0 calcPercent(15);
+      @include tablet {
+        padding: 60px 0 0 calcPercent(30, 768);
+      }
+      @include pc {
+        padding: 70px 0 0 57px;
+        // padding: 158px 0 0 57px;
+      }
+      &:before {
+        @include setCont(null, null, block, absolute);
+        content: "OUR USP";
+        top: 15px;
+        left: 15px;
+        opacity: 0.1;
+        color: $white;
+        @include fontfamily(500, "mont");
+        @include font(45, 55);
+        z-index: 1;
+        @include tablet {
+          top: 60px;
+          left: calcPercent(30, 768);
+          @include font(60, 73);
+        }
+        @include pc {
+          @include font(150, 183);
+          top: 50px;
+          left: -125px;
+        }
+        @media (min-width: $tablet) and (max-width: (1500px)) {
+          left: 0;
+        }
+      }
+      .col_img {
+        //321
+        @include setCont(279px, 347px, block);
+        @include bgSvg(imgMain4(), no-repeat, 0 0, 279px auto);
+        @include blind;
+        margin: 0 auto;
+        @include tablet {
+          // margin: 0;
+          @include setCont(337px, 428px, block);
+          background-position: 0 -2px !important;
+          background-size: 327px auto !important;
+        }
+        @include pc {
+          @include setCont(495px, 680px, block);
+          background-position: 0 0 !important;
+          background-size: 495px auto !important;
+        }
+      }
+      .col {
+        padding-right: calcPercent(15, 305);
+        margin-bottom: 40px;
+        @include tablet {
+          padding-top: 40px;
+          padding-right: 0;
+          margin-bottom: 0;
+        }
+        @include pc {
+          padding-top: 88px;
+        }
+      }
+      .unit {
+        position: relative;
+        width: 100%;
+        @include font(14, 17);
+        color: $white;
+        z-index: 3;
+        @include tablet {
+          @include font(15, 18);
+        }
+        @include pc {
+          @include font(20, 24);
+          letter-spacing: -0.3px;
+        }
+        & + .unit {
+          margin-top: 25px;
+          @include toTablet {
+            margin-top: 35px;
+          }
+          @include pc {
+            margin-top: 70px;
+          }
+        }
+        h2 {
+          margin: 1px auto 0;
+          padding-left: 25px;
+          letter-spacing: -0.27px;
+          color: #0bf0d5;
+          @include bgSvg(icoDisk("07D6E1"), no-repeat, 0 50%, 20px 20px);
+          @include tablet {
+            background-size: 30px 30px !important;
+            letter-spacing: -0.33px;
+            padding-left: 37px;
+            line-height: calcRem(30);
+          }
+          @include pc {
+            @include font(30, 36);
+            padding-left: 50px;
+            line-height: 40px;
+            @include bgSvg(icoDisk("07D6E1", 1), no-repeat, 0 50%);
+            background-size: 40px 40px !important;
+          }
+        }
+        h3 {
+          padding-left: 25px;
+          @include tablet {
+            @include font(16, 19);
+            padding-left: 37px;
+          }
+          @include pc {
+            @include font(25, 30);
+            padding-left: 50px;
+          }
+        }
+        p {
+          margin-top: 5px;
+          padding-left: 25px;
+          @include tablet {
+            margin-top: 6px;
+            padding-left: 37px;
+          }
+          @include pc {
+            padding-left: 50px;
+          }
+        }
+      }
+    }
+  }
+  .area_bnr {
+    background: #1f284a;
+    text-align: center;
+    .inner {
+      padding: 21px 0 20px;
+      &:before {
+        @include setCont(48px, 52px, block, absolute);
+        @include bgSvg(imgMain5(), no-repeat, 0 0, 100% 100%);
+        right: 20px;
+        bottom: -26px;
+        // bottom: -26px;
+        animation: ani1 1s infinite ease;
+        transform: translateY(0);
+        @keyframes ani1 {
+          0% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10%);
+          }
+          100% {
+            transform: translateY(0);
+          }
+        }
+      }
+      @include tablet {
+        padding: 30px 0;
+        &:before {
+          right: 15px;
+          bottom: -37px;
+          @include setCont(69px, 74px);
+        }
+        &:after {
+          @include setCont(65px, 65px, block, absolute);
+          @include bgSvg(imgMain6(), no-repeat, 0 0, 100% 100%);
+          top: -25px;
+          left: calcPercent(30, $s_tablet);
+          transform: translateY(0);
+          animation: ani2 1s infinite ease;
+          @keyframes ani2 {
+            0% {
+              transform: translateY(0) rotate(0);
+            }
+            50% {
+              transform: translateY(5%) rotate(10deg);
+            }
+            100% {
+              transform: translateY(0) rotate(0);
+            }
+          }
+        }
+      }
+      @include pc {
+        padding: 42px 0 41px;
+        text-align: left;
+        &:before {
+          right: -30px;
+          bottom: -47px;
+          @include setCont(127px, 127px);
+        }
+        &:after {
+          @include setCont(138px, 138px);
+          top: -13px;
+          left: 57px;
+          transform: translateY(0);
+        }
+      }
+    }
+    p {
+      display: block;
+      margin-bottom: 10px;
+      @include font(16, 19);
+      color: $white;
+      b {
+        color: #0bf0d5;
+      }
+      @include tablet {
+        margin-right: calcPercent(16, 768);
+        margin-bottom: 0;
+        display: inline-block;
+        @include font(20, 24);
+      }
+      @include pc {
+        margin: 0 100px 0 196px;
+        margin-bottom: 0;
+        display: inline-block;
+        @include font(25, 30);
+      }
+    }
+    .btn {
+      position: relative;
+      &:before {
+        @include setCont(33px, 33px, none, absolute);
+        @include bgSvg(imgMain7(), no-repeat, 0 0, 100% auto);
+        top: 50%;
+        left: -20px;
+        animation: ani4 3s reverse infinite ease-in-out;
+        @keyframes ani4 {
+          0% {
+            transform: rotateY(0);
+          }
+          40% {
+            transform: rotateY(0);
+          }
+          50% {
+            transform: rotateY(360deg);
+          }
+          60% {
+            transform: rotateY(0);
+          }
+          100% {
+            transform: rotateY(0);
+          }
+        }
+      }
+      @include tablet {
+        min-width: calcPercent(270, 768);
+        &:before {
+          display: block;
+        }
+      }
+      @include pc {
+        min-width: 416px;
+        border-radius: 35px;
+        @include font(20, 24);
+        padding-left: 60px;
+        padding-right: 41px;
+        &:before {
+          @include setCont(54px, 53px);
+          background-size: 100% auto !important;
+          left: -105px;
+        }
+        &:after {
+          @include setCont(16px, 11px, inline-block);
+          @include bgSvg(icoArr($s_white), no-repeat, 0 0, 100% auto);
+          vertical-align: middle;
+          margin: -4px 0 0 65px;
+        }
+      }
+    }
+  }
+  .area3 {
+    .inner {
+      padding: 38px 15px 60px;
+      @include tablet {
+        padding: 80px calcPercent(30, 768) 100px;
+      }
+      @include pc {
+        padding: 110px 0 140px;
+        max-width: 850px;
+      }
+    }
+    h2 {
+      position: relative;
+      text-align: center;
+      margin-bottom: 23px;
+      @include tablet {
+        margin-bottom: 30px;
+      }
+      @include pc {
+        margin-bottom: 83px;
+        @include font(30, 36);
+      }
+      &:before {
+        @include setCont(null, null, block, absolute);
+        top: -21px;
+        left: 50%;
+        transform: translateX(-50%);
+        content: "FAQ";
+        color: #1f284a;
+        @include fontfamily(500, "mont");
+        @include font(45, 55);
+        opacity: 0.1;
+        z-index: 1;
+        @include tablet {
+          top: -40px;
+          margin-bottom: 30px;
+          @include font(75, 92);
+        }
+        @include pc {
+          top: -70px;
+          @include font(150, 183);
+        }
+      }
+      b {
+        position: relative;
+        z-index: 2;
+      }
+    }
+    .list {
+      li {
+        padding: 0 0 5px;
+        border-bottom: 1px solid #e8e8ec;
+        @include pc {
+          padding-bottom: 15px;
+        }
+        .top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 0 10px;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.7;
+          }
+          @include tablet {
+            padding: 20px 0 15px;
+          }
+          @include pc {
+            padding-top: 30px;
+          }
+        }
+        .cont {
+          height: 0;
+          max-height: 0;
+          overflow: hidden;
+          color: $gray;
+          word-break: keep-all;
+          transition: all 400ms ease;
+          opacity: 0;
+        }
+        h3 {
+          transition: all 300ms ease;
+          @include tablet {
+            @include font(18, 21);
+          }
+          @include pc {
+            @include font(20, 24);
+          }
+        }
+        &.on {
+          h3 {
+            color: $point;
+          }
+          .btn_more {
+            &:before,
+            &:after {
+              background: $point;
+            }
+            &:after {
+              top: 50;
+              transform: rotate(0deg) translateY(-50%);
+              opacity: 0;
+            }
+          }
+          .top {
+            &:hover {
+              opacity: 0.9;
+            }
+          }
+          .cont {
+            padding: 5px 0 10px;
+            height: auto;
+            max-height: 100vh;
+            overflow: hidden;
+            transition: all 400ms ease;
+            opacity: 1;
+            @include tablet {
+              padding: 0 0 20px;
+            }
+            @include pc {
+              padding-bottom: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes typing {
+  0% {
+    width: 0%;
+  }
+  70% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes cursor {
+  0% {
+    left: 0%;
+  }
+  70% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes typing1 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
